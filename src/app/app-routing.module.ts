@@ -1,7 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RestaurantAboutComponent } from './restaurant-about/restaurant-about.component';
+import { RestaurantFoodComponent } from './restaurant-food/restaurant-food.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'about',
+    pathMatch: 'full'
+  },
+  {
+    path: 'about',
+    component: RestaurantAboutComponent
+  },
+  {
+    path: 'food',
+    component: RestaurantFoodComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
