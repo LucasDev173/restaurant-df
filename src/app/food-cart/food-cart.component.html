@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Carrito</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let food of foods">
+      <td>{{food.name}}</td>
+      <td>${{food.price}}</td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-success">Iniciar compra</button>
