@@ -1,10 +1,5 @@
-.sale{
-  background-color: rgb(212, 255, 146);
-}
-
-
-input[type=number] {
-  appearance: textfield;
+.smallInput{
+  max-width: 7%;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -12,4 +7,9 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   appearance: none;
   margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  appearance: textfield;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodCartService } from '../food-cart.service';
 import { Food } from '../food-list/Food';
 
 @Component({
@@ -8,19 +9,15 @@ import { Food } from '../food-list/Food';
 })
 export class FoodCartComponent implements OnInit {
 
-  foods: Food[] = [
-    {
-      name: "Berenjenas a la ratatuil",
-      type: "Guarnicion",
-      price: 1800,
-      onSale: false,
-      quantity: 0
-    }
-  ]
+  foods: Food[] = []
 
-  constructor() { }
+  constructor(private cartService: FoodCartService) { }
 
   ngOnInit(): void {
+    this.cartService.cartList.subscribe(data=>{
+      this.foods = data;
+    })
+
   }
 
 }

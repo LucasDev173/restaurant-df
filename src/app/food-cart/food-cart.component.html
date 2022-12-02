@@ -3,13 +3,15 @@
     <tr>
       <th>Carrito</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let food of foods">
       <td>{{food.name}}</td>
-      <td>${{food.price}}</td>
+      <td>x{{food.quantity}}</td>
+      <td>${{food.price * food.quantity}}</td>
     </tr>
   </tbody>
 </table>
-<button class="btn btn-success">Iniciar compra</button>
+<button class="btn btn-success">Terminar compra</button>

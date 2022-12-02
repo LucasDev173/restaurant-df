@@ -1,9 +1,11 @@
+<p class="mt-2">Puede ordenar un maximo de 4 porciones de cada plato.</p>
 <table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Tipo</th>
       <th>Precio</th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -15,16 +17,10 @@
       <td>${{food.price}}</td>
       <td><span class="badge badge-success" *ngIf="food.onSale">¡OFERTA!</span></td>
       <td>
-        <div class="form-group">
-          <button type="button" class="btn btn-default btn-xs" (click)="downQuantity(food)">
-            <span class="glyphicon glyphicon-minus" aria-hidden="true">-</span>
-          </button>
-          <input class="smallInput " type="number" [(ngModel)]="food.quantity" (keypress)="changeQuantity($event)">
-          <button type="button" class="btn btn-default btn-xs" (click)="upQuantity(food)">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true">+</span>
-          </button>
-        </div>
+        <app-input-integer [(quantity)]="food.quantity" [max]="4" (maxReached)="maxReached($event)"></app-input-integer>
+        Cant: {{food.quantity}}
       </td>
+      <td><button class="btn btn-primary" (click)="addCart(food)">Comprar</button></td>
     </tr>
   </tbody>
 </table>

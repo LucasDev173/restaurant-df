@@ -8,6 +8,10 @@ import { FoodCartComponent } from './food-cart/food-cart.component';
 import { FormsModule } from '@angular/forms';
 import { RestaurantAboutComponent } from './restaurant-about/restaurant-about.component';
 import { RestaurantFoodComponent } from './restaurant-food/restaurant-food.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RestaurantReservationComponent } from './restaurant-reservation/restaurant-reservation.component';
+import { ReservationListComponent } from './reservation-list/reservation-list.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,16 @@ import { RestaurantFoodComponent } from './restaurant-food/restaurant-food.compo
     FoodListComponent,
     FoodCartComponent,
     RestaurantAboutComponent,
-    RestaurantFoodComponent
+    RestaurantFoodComponent,
+    InputIntegerComponent,
+    RestaurantReservationComponent,
+    ReservationListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

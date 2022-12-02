@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodCartService } from '../food-cart.service';
 import { Food } from './Food';
 
 
@@ -40,24 +41,18 @@ export class FoodListComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private cartService: FoodCartService) { }
 
   ngOnInit(): void {
   }
 
-  upQuantity(food:Food){
-    food.quantity++;
+  maxReached(msg:string){
+    alert(msg);
   }
 
-  downQuantity(food:Food){
-    if(!(food.quantity <= 0)){
-      food.quantity--;  
+  addCart(food:Food){
+    if(food.quantity > 0){
+      this.cartService.addToCart(food);
     }
-  }
-
-  changeQuantity(event: { preventDefault: any; key: any;}):void{
-      if(!(event.key >= "0" && event.key <= "9")){
-        event.preventDefault();
-      }   
   }
 }
