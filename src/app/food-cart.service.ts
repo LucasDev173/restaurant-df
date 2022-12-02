@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { createComponent, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Food } from './food-list/Food';
 
@@ -14,17 +14,32 @@ export class FoodCartService {
 
   constructor() { }
 
-  addToCart(food:Food){
-    let item: Food = this._cartList.find((v1) => v1.name == food.name)!;
+  addToCart(foodToAdd:Food){
+    let item: Food = this._cartList.find((v1) => v1.name == foodToAdd.name)!;
     if(!item){
-      this._cartList.push({...food}) //clona al objeto (notacion funcional) y lo a grega a la lista
+      this._cartList.push({...foodToAdd}) //clona al objeto (notacion funcional) y lo a grega a la lista
     }
     else{
-      if((item.quantity + food.quantity) <= 4){
-        item.quantity += food.quantity; //si el item ya existe en el carrito, suma su cantidad
+      if((item.quantity + foodToAdd.quantity) <= 4){
+        item.quantity += foodToAdd.quantity; //si el item ya existe en el carrito, suma su cantidad
       }
       console.log(this._cartList);
       this._cartListSubject.next(this._cartList); //emite el nuevo valor a los subscriptores
     }
+  }
+
+  removeFromCart(foodToDelete:Food){
+    let food: Food = this._cartList.find((v1) => v1.name == foodToDelete.name)!;
+    if(food){
+      if((food.quantity) > 1){
+        food.quantity -= 1; //si se ordeno mas de un plato, se resta en lugar de hacer el splice 
+      }
+      else{
+        let indexToDelete = this._cartList.indexOf(food);
+        this._cartList.splice(indexToDelete, 1);
+      }
+    }
+    console.log(this._cartList);
+    this._cartListSubject.next(this._cartList); //emite el nuevo valor a los subscriptores
   }
 }

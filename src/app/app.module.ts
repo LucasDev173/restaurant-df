@@ -12,6 +12,7 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantReservationComponent } from './restaurant-reservation/restaurant-reservation.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { ReservationInputComponent } from './reservation-input/reservation-input.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
     RestaurantFoodComponent,
     InputIntegerComponent,
     RestaurantReservationComponent,
-    ReservationListComponent
+    ReservationListComponent,
+    ReservationInputComponent
   ],
   imports: [
     BrowserModule,

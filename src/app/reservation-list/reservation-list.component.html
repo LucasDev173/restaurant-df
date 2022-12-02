@@ -1,1 +1,28 @@
-<p>reservation-list works!</p>
+<table class="table table-sm table-dark border border-danger mt-5">
+  <thead>
+    <tr class="bg-danger">
+      <th>Nombre</th>
+      <th>Mesa</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <div *ngIf="reservations.length == 0; else elseBlock">
+      <tr>
+        <td>¡No hay reservaciones todavia!</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </div>
+
+    <ng-template #elseBlock>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{reservation.name}}</td>
+        <td>{{reservation.table}}</td>
+        <td><button type="button" class="btn btn-default btn-xs" (click)="removeFromReservationList(reservation)">
+          <span class="text-danger">X</span>
+        </button></td>
+      </tr>
+    </ng-template>
+  </tbody>
+</table>

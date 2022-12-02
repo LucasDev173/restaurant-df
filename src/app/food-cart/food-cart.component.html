@@ -1,7 +1,8 @@
-<table class="table">
+<table class="table table-sm table-dark border border-success mt-5">
   <thead>
-    <tr>
+    <tr class="bg-success">
       <th>Carrito</th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -11,7 +12,10 @@
       <td>{{food.name}}</td>
       <td>x{{food.quantity}}</td>
       <td>${{food.price * food.quantity}}</td>
+      <td><button type="button" class="btn btn-default btn-xs" (click)="removeFromCart(food)">
+        <span class="text-danger">X</span>
+      </button></td>
     </tr>
   </tbody>
 </table>
-<button class="btn btn-success">Terminar compra</button>
+<button class="btn btn-success" (click)="finalizarCompra()">Terminar compra</button>

@@ -1,0 +1,9 @@
+<div class="form-group">
+  <form>
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" id="nameInput"  class="form-control"  style="max-width: 30%;" placeholder="Ej: John Titor" (keyup.enter)="makeReservation($event)">
+  </form> 
+</div>
+<div class="mb-1">Cantidad de mesas a reservar (maximo 3)</div>
+<app-input-integer [(quantity)]="quantityToReserve" [max]="3" (maxReached)="maxReached($event)"></app-input-integer>
+

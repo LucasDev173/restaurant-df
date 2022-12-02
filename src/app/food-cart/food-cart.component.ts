@@ -20,4 +20,19 @@ export class FoodCartComponent implements OnInit {
 
   }
 
+  finalizarCompra(){
+    this.cartService.cartList.subscribe(data=>{
+      if(data.length == 0){
+        alert("Por favor, ponga un item en el carrito antes de intentar comprar.")
+      }
+      else{
+        alert("¡Compra realizada con exito!");
+      }
+    })
+  }
+  
+  removeFromCart(food:Food){
+    this.cartService.removeFromCart(food);
+  }
+  
 }
